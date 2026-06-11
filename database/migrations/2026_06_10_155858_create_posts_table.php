@@ -15,7 +15,7 @@ return new class extends Migration
         $table->id();
         
         $table->enum('type', ['history', 'plan'])->default('history');
-        $table->foreignId('user_id')->constrained('users');
+        $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         $table->string('title');
         $table->string('category')->nullable();
         $table->tinyInteger('private')->default(0);
