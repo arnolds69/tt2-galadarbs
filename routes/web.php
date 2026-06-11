@@ -13,3 +13,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/posts/create', fn() => view('create'))->name('posts.create');
 Route::get('/my-posts', fn() => view('mine'))->name('posts.mine');
 Route::get('/profile/{id}', fn() => view('profile'))->name('profile.show');
+
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/my-posts', [PostController::class, 'mine'])->name('posts.mine');

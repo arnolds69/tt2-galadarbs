@@ -35,4 +35,8 @@ public function store(Request $request)
 
     return redirect('/');
 }
+public function mine() {
+    $posts = \App\Models\Post::where('user_id', auth()->id())->get();
+    return view('mine', compact('posts'));
+}
 }
