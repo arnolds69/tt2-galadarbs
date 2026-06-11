@@ -46,5 +46,32 @@ public function followers($id) {
         ->paginate(50);
     return view('followers', compact('user', 'followers'));
 }
+public function destroy($id) {
+    $user = User::findOrFail($id);
+    if (auth()->id() !== $user->id && auth()->user()->role !== 'admin') {
+        return redirect('/')->with('error', 'Unauthorized.');
+    }
+    $user->delete();
+    if (auth()->id() === $user->id) {
+        auth()->logout();
+    }
+    return redirect('/')->with('success', 'Account deleted.');
+}
+public function update(Request $request, $id) {
+    $user = User::findOrFail($id);
+
+    if (auth()->id() !== $user->id && auth()->user()->role !== 'admin') {
+        return redirect('/')->with('error', 'Unauthorized.');
+    }
+
+    $user->update([
+        'username' => $request->username,
+        'email'    => $request->email,
+    ]);
+
+    return back()->with('success', 'Profile updated.');
+}
+
+
     
 }

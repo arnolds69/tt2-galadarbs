@@ -13,6 +13,7 @@ return new class extends Migration
 {
     Schema::create('posts', function (Blueprint $table) {
         $table->id();
+        
         $table->enum('type', ['history', 'plan'])->default('history');
         $table->foreignId('user_id')->constrained('users');
         $table->string('title');
@@ -20,6 +21,7 @@ return new class extends Migration
         $table->tinyInteger('private')->default(0);
         $table->unsignedInteger('viewcount')->default(0);
         $table->timestamps();
+        $table->softDeletes();
     });
 }
 

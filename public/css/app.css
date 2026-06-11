@@ -21,4 +21,11 @@ h2 { border-bottom: 3px solid black; padding-bottom: 2rem; margin-bottom: 1rem; 
 form { margin-bottom: 1rem; } /*search bar bottom margin*/
 .content a { text-decoration: none; color:#e94560; padding:2px; background-color:wheat; border-radius: 16px;}
 .sidebar a { text-decoration: none; color:#e94560; border-radius: 1px;}
-.post-card small {padding:3px; font-size: 1rem; margin-top:5px}
+.post-card small {padding:3px; font-size: 1rem; }
+
+.myposts a { text-decoration: none; color:#e94560; padding:3px; background-color:wheat; border-radius: 16px;}
+.showpost a { text-decoration: none; color:#e94560; padding:3px; background-color:wheat; border-radius: 16px;}
+
+.profile a { text-decoration: none; color:#000000;}
+.profile a:hover { text-decoration: none; color:#ff0000;}
+

@@ -1,7 +1,7 @@
 @extends('app')
 @section('content')
 <h2>My Posts</h2>
-<div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+<div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;" class="myposts">
     @forelse($posts as $post)
         <div style="border:1px solid #ccc; padding:1rem; width:200px;">
             <b>{{ $post->title }}</b><br>

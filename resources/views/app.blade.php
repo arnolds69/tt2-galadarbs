@@ -8,8 +8,11 @@
 </head>
 <body>
 <nav>
+     
+    
     <div>
         <a href="{{ url('/') }}">Home</a>
+
     </div>
     <div>
         @guest
@@ -25,6 +28,10 @@
             <form method="POST" action="{{ route('logout') }}" style="display:inline">
                 @csrf <button type="submit">Log out</button>
             </form>
+            @if(auth()->user()->role === 'admin')
+                <a href="{{ route('posts.trash') }}">Trash</a>
+            @endif
+        
         @endauth
     </div>
 </nav>

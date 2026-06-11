@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-<div style="max-width:500px; margin:2rem auto;">
+<div style="max-width:500px; margin:2rem auto;" class="profile">
     <h2>{{ $user->username }}</h2>
     <p>Posts: {{ $postCount }}</p>
     <p><a href="{{ route('profile.followers', $user->id) }}">Followers</a>: {{ $followerCount }}</p>
@@ -21,7 +21,7 @@
         @endif
     @endauth
 
-    @if(auth()->id() === $user->id)
+    @if(auth()->id() === $user->id || auth()->user()->role === 'admin') 
         <hr>
         <h3>Change password</h3>
         <form method="POST" action="/profile/{{ $user->id }}/password">
@@ -29,6 +29,11 @@
             <input type="password" name="password" placeholder="New password" required><br>
             <input type="password" name="password_confirmation" placeholder="Confirm password" required><br>
             <button type="submit">Update password</button>
+        </form>
+        <hr>
+        <form method="POST" action="/profile/{{ $user->id }}/delete">
+        @csrf
+        <button type="submit">Delete Account</button>
         </form>
     @endif
 </div>

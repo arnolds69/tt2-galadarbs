@@ -22,13 +22,20 @@
         </div>
     </div>
     <div class="sidebar">
-        <b>Filter by category</b><br><br>
+        <b>Filter </b><br><br>
         <a href="/?category=running">Running</a><br>
         <a href="/?category=lifting">Lifting</a><br>
         <a href="/?category=swimming">Swimming</a><br>
         <a href="/?category=cycling">Cycling</a><br>
         <a href="/?category=other">Other</a><br>
         <a href="/">All</a>
+
+        <br><br>
+
+    <b>Sort by</b><br><br>
+
+    <a href="/?sort=recent">Most Recent</a><br>
+    <a href="/?sort=views">Most Views</a><br>
     </div>
 </div>
 <div class="pagination">
