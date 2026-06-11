@@ -10,20 +10,19 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('seko', function (Blueprint $table) {
-        $table->id();
-        $table->foreignId('follower')->constrained('users');
-        $table->foreignId('follows')->constrained('users');
-        $table->timestamps();
-    });
-}
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('follows');
+        Schema::table('posts', function (Blueprint $table) {
+            //
+        });
     }
 };

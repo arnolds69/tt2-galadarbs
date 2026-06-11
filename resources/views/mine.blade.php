@@ -7,6 +7,7 @@
             <b>{{ $post->title }}</b><br>
             {{ $post->type }} · {{ $post->category }}<br>
             {{ $post->private ? 'Private' : 'Public' }}<br>
+            <a href="{{ route('posts.show', $post->id) }}">View</a> |
             <a href="/posts/{{ $post->id }}/edit">Edit</a> |
             <form method="POST" action="/posts/{{ $post->id }}/delete" style="display:inline">
                 @csrf <button type="submit">Delete</button>

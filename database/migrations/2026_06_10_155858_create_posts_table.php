@@ -13,6 +13,7 @@ return new class extends Migration
 {
     Schema::create('posts', function (Blueprint $table) {
         $table->id();
+        $table->enum('type', ['history', 'plan'])->default('history');
         $table->foreignId('user_id')->constrained('users');
         $table->string('title');
         $table->string('category')->nullable();
